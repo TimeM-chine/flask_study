@@ -1,0 +1,8 @@
+.row img{
+    height: 64px;
+    width: 64px;
+}
+
+.row li{
+    background-color: #0f6674;
+}

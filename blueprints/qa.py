@@ -8,7 +8,8 @@ bp = Blueprint("qa", __name__, url_prefix="/")
 
 @bp.route("/")
 def index():
-    return render_template("index.html")
+    questions = QuestionModel.query.all()
+    return render_template("index.html", que=questions)
 
 
 @bp.route("/question/public", methods=['POST', 'GET'])
@@ -27,5 +28,4 @@ def public_question():
             return redirect("/")
         else:
             flash("Format Error!")
-            print("daozhelie")
             return redirect(url_for("qa.public_question"))
