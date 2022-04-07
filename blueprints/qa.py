@@ -29,3 +29,10 @@ def public_question():
         else:
             flash("Format Error!")
             return redirect(url_for("qa.public_question"))
+
+
+@bp.route("/question/detail/<int:question_id>")
+@login_verify
+def detail(question_id):
+    question = QuestionModel.query.get(question_id)
+    return render_template("detail.html", question=question)

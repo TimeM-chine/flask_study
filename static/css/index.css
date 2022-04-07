@@ -1,8 +1,8 @@
-.row img{
+.avatar{
     height: 64px;
     width: 64px;
 }
 
-.row li{
-    background-color: #0f6674;
+li{
+    list-style-type: none;
 }

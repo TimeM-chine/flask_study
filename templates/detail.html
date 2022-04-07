@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/detail.css") }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Question Detail</h1>
+
+    <div class="row mt-3">
+        <div class="col"></div>
+        <div class="col-8 alert alert-info" role="alert">
+            <div>
+                <h1 class="page-title">{{ question.title }}</h1>
+                <div>
+                    <a class="author">author : {{ question.author.user_name }}</a>
+                    <a class="create_time">{{ question.create_time }}</a></div>
+                <div><p>{{ question.content }}</p></div>
+
+            </div>
+
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock %}
