@@ -37,6 +37,19 @@ class QuestionModel(db.Model):
     author = db.relationship("UserModel", backref="questions")
 
 
+class AnswerModel(db.Model):
+    __tablename__ = "answer"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    content = db.Column(db.Text, nullable=False)
+    question_id = db.Column(db.Integer, db.ForeignKey("question.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    author = db.relationship("UserModel", backref="answers")
+    question = db.relationship("QuestionModel", backref="answers")
+
+
 class QuestionValidate(wtforms.Form):
     title = wtforms.StringField(validators=[length(min=3, max=100)])
     content = wtforms.StringField(validators=[length(min=5)])
